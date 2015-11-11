@@ -25,7 +25,7 @@
 #include <iostream> 
 #include <fstream> 
 #include <string>
-#include "kodi/util/XMLUtils.h"
+#include "mrmc/util/XMLUtils.h"
 
 
 using namespace ADDON;
