@@ -55,6 +55,7 @@ bool        g_bSetPowerstate          = false;
 bool        g_bOnlyOneGroup           = false;
 bool        g_bOnlinePicons           = true;
 bool        g_bUseSecureHTTP          = false;
+bool        g_bUseSecureHTTPStream    = false;
 std::string g_strOneGroup             = "";
 std::string g_szClientPath            = "";
 
@@ -100,7 +101,11 @@ void ADDON_ReadSettings(void)
   /* read setting "use_secure" from settings.xml */
   if (!XBMC->GetSetting("use_secure", &g_bUseSecureHTTP))
     g_bUseSecureHTTP = false;
-  
+ 
+   /* read setting "use_secure_stream" from settings.xml */
+  if (!XBMC->GetSetting("use_secure_stream", &g_bUseSecureHTTPStream))
+    g_bUseSecureHTTPStream = false; 
+
   /* read setting "streamport" from settings.xml */
   if (!XBMC->GetSetting("streamport", &g_iPortStream))
     g_iPortStream = DEFAULT_STREAM_PORT;

@@ -124,6 +124,10 @@ msgctxt "#30028"
 msgid "Use Secure HTTP (https)"
 msgstr ""
 
+msgctxt "#30029"
+msgid "Use Secure HTTP (https) for Video Stream"
+msgstr ""
+
 #empty strings from id 30029 to 30499
 #notifications
 
