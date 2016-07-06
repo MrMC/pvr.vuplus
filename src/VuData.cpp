@@ -195,6 +195,7 @@ Vu::Vu()
   m_bIsConnected = false;
   m_strServerName = "Vu";
   CStdString strURL = "";
+  CStdString strURLRedacted = "";
 
   // simply add user@pass in front of the URL if username/password is set
   if ((g_strUsername.length() > 0) && (g_strPassword.length() > 0))
@@ -203,11 +204,18 @@ Vu::Vu()
   }
   
   if (!g_bUseSecureHTTP)
+  {
     strURL.Format("http://%s%s:%u/", strURL.c_str(), g_strHostname.c_str(), g_iPortWeb);
+    strURLRedacted.Format("http://USER:PASS@IPADDRESS:%u/", g_iPortWeb);
+  }
   else
+  {
     strURL.Format("https://%s%s:%u/", strURL.c_str(), g_strHostname.c_str(), g_iPortWeb);
+    strURLRedacted.Format("https://USER:PASS@IPADDRESS:%u/", g_iPortWeb);
+  }
   
   m_strURL = strURL.c_str();
+  m_strURLRedacted = strURLRedacted.c_str();
 
   m_iNumRecordings = 0;
   m_iNumChannelGroups = 0;
@@ -571,7 +579,7 @@ CStdString Vu::GetHttpXML(CStdString& url)
 {
 //  CLockObject lock(m_mutex);
 
-  XBMC->Log(LOG_INFO, "%s Open webAPI with URL: '%s'", __FUNCTION__, url.c_str());
+  XBMC->Log(LOG_INFO, "%s Open webAPI with URL: '%s'", __FUNCTION__, m_strURLRedacted.c_str());
 
   CStdString strTmp;
 

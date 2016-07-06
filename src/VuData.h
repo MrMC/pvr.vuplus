@@ -153,6 +153,7 @@ private:
   bool  m_bIsConnected;
   std::string m_strServerName;
   std::string m_strURL;
+  std::string m_strURLRedacted;
   int m_iNumRecordings;
   int m_iNumChannelGroups;
   int m_iCurrentChannel;
