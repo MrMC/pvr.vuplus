@@ -198,7 +198,8 @@ Vu::Vu()
   CStdString strURLRedacted = "";
 
   // simply add user@pass in front of the URL if username/password is set
-  if ((g_strUsername.length() > 0) && (g_strPassword.length() > 0))
+  // onlt needed if streaming service requires credentials
+  if ((g_strUsername.length() > 0) && (g_strPassword.length() > 0) && g_bUseSecureHTTP)
   {
     strURL.Format("%s:%s@", g_strUsername.c_str(), g_strPassword.c_str());
   }
